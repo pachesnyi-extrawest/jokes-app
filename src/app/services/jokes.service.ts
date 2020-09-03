@@ -20,7 +20,6 @@ export class JokesService {
   getJokesList(amount: number): Observable<JokeDto[]> {
     return this.http.get<JokesResponseDto>(`${this._apiUrl}/random/${amount}`).pipe(
       map(data=> {
-        console.log(data)
         return data.value.map(joke=> new JokeDto(joke))
       })
     );

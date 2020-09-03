@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {JokeDto} from "../../models/joke.model";
+import {ActivatedRoute, Params} from "@angular/router";
+import {Subject} from "rxjs";
+import {switchMap, takeUntil} from "rxjs/operators";
+import {JokesService} from "../../services/jokes.service";
 
 @Component({
   selector: 'app-joke-details-page',
@@ -7,9 +12,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JokeDetailsPageComponent implements OnInit {
 
-  constructor() { }
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _jokesService: JokesService
+  ) { }
+
+  currentJoke: JokeDto;
 
   ngOnInit(): void {
+    this._activatedRoute.params
+      .pipe(
+        takeUntil(this.destroy$),
+        switchMap((params: Params)=> {
+          return this._jokesService.getJokeDetails(params.id);
+        })
+      ).subscribe(data=> {
+        this.currentJoke = data;
+    })
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 
 }
