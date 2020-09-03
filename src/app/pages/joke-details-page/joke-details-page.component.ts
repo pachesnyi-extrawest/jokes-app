@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {JokeDto} from "../../models/joke.model";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Subject} from "rxjs";
@@ -10,7 +10,7 @@ import {JokesService} from "../../services/jokes.service";
   templateUrl: './joke-details-page.component.html',
   styleUrls: ['./joke-details-page.component.scss']
 })
-export class JokeDetailsPageComponent implements OnInit {
+export class JokeDetailsPageComponent implements OnInit, OnDestroy {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 

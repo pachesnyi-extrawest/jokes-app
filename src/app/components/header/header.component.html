@@ -1,6 +1,6 @@
 <div class="header context-dark">
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-between align-items-center">
       <div class="col-4">
         <a [routerLink]="['/'] "class="logo">
           <svg width="162" height="50" viewBox="0 0 162 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,6 +32,9 @@
             </defs>
           </svg>
         </a>
+      </div>
+      <div class="col-4 text-right">
+        <app-theme-switcher></app-theme-switcher>
       </div>
     </div>
   </div>

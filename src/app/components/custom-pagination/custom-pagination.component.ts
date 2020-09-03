@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {PaginationService} from "../../services/pagination.service";
 
 @Component({
@@ -19,7 +19,7 @@ export class CustomPaginationComponent implements OnInit {
   }
 
   isActive(page) {
-    return !!this._paginationService.currentPage === page + 1;
+    return this._paginationService.currentPage === page + 1;
   }
 
   isFirstPage() {

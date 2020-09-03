@@ -12,13 +12,14 @@ import {JokeSingleResponseDto} from "../interfaces/joke-single-response";
 export class JokesService {
 
   private _apiUrl: string = ' http://api.icndb.com/jokes';
+  private readonly ITEMS_AMOUNT = 35;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getJokesList(amount: number): Observable<JokeDto[]> {
-    return this.http.get<JokesResponseDto>(`${this._apiUrl}/random/${amount}`).pipe(
+  getJokesList(): Observable<JokeDto[]> {
+    return this.http.get<JokesResponseDto>(`${this._apiUrl}/random/${this.ITEMS_AMOUNT}`).pipe(
       map(data=> {
         return data.value.map(joke=> new JokeDto(joke))
       })

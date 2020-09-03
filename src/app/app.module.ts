@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './components/header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import { CustomPaginationComponent } from './components/custom-pagination/custom-pagination.component';
+import { ThemeSwitcherComponent } from './components/theme-switcher/theme-switcher.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CustomPaginationComponent } from './components/custom-pagination/custom
     JokesListItemComponent,
     JokeDetailsPageComponent,
     HeaderComponent,
-    CustomPaginationComponent
+    CustomPaginationComponent,
+    ThemeSwitcherComponent
   ],
   imports: [
     BrowserModule,

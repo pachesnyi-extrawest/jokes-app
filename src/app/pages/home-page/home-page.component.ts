@@ -17,7 +17,7 @@ export class HomePageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.jokesStream$ = this._jokesService.getJokesList(75);
+    this.jokesStream$ = this._jokesService.getJokesList();
   }
 
 }

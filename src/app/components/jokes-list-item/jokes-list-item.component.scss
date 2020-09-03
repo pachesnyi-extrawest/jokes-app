@@ -9,9 +9,13 @@
   border-radius: 0.2rem;
   background-color: adjust_hue(rgba($accent-color, .12), -10);
   border: 1px solid adjust_hue(rgba($accent-color, .12), -10);
-  //background-color: #eee;
-  //border: 1px solid #eee;
+
   box-shadow: 1px 1px 10px rgba(black, 0.1);
+  .dark-theme & {
+    background-color: rgba(#fff, .9);
+    border: 1px solid rgba(#fff, .9);
+    color: black;
+  }
 }
 
 .joke__text {
